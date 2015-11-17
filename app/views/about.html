@@ -1,0 +1,130 @@
+
+
+<md-content layout="column"  flex>
+<md-card>
+
+  <md-toolbar layout="row">
+    <div class="md-toolbar-tools">
+      <h1>Registration Form</h1>
+    </div>
+  </md-toolbar>
+
+  <md-radio-group ng-model="Registration.button"  flex   >
+    <md-radio-button value="office" class="md-primary" ng-model="registration.accountType" >Physician Office Staff</md-radio-button>
+    <md-radio-button value="billing" ng-model="registration.accountType" > Billing Company </md-radio-button>
+
+  </md-radio-group>
+
+  <md-content md-theme="docs-dark" layout-padding layout="row" layout-sm="column">
+    <md-input-container ng-show="registration.accountType == 'office'">
+      <label>Physician Office Staff</label>
+      <input ng-show="registration.accountType == 'office'">
+    </md-input-container>
+
+    <md-input-container ng-show="registration.accountType == 'billing'">
+      <label>Company Name</label>
+      <input ng-model="registration.physicianOfficeName" type="email">
+    </md-input-container>
+
+
+  </md-content>
+
+  <div layout="column" flex id="content">
+    <md-content layout-padding>
+      <form name="regForm">
+
+        <div layout layout-sm="column">
+          <md-input-container flex>
+            <label>First Name</label>
+            <input ng-model="user.firstName" required>
+          </md-input-container>
+          <md-input-container flex>
+            <label>Last Name</label>
+            <input ng-model="user.lastName" required>
+          </md-input-container>
+
+          <md-input-container flex>
+            <label>Initial</label>
+            <input ng-model="user.postalCode" required>
+          </md-input-container>
+        </div>
+
+
+        <div layout layout-sm="column">
+        <md-input-container flex>
+          <label>Cell Phone </label>
+          <input ng-model="user.phone" type="phone">
+        </md-input-container>
+
+        <md-input-container flex>
+          <label>Five Digital Pin#  </label>
+          <input ng-model="user.phone" type="phone">
+        </md-input-container>
+
+          <md-input-container flex>
+            <label>Office Phone </label>
+            <input ng-model="user.phone" type="phone">
+          </md-input-container>
+
+            </div>
+        <div layout layout-sm="column">
+
+        <md-input-container flex>
+          <label>E-mail</label>
+          <input ng-model="user.email" type="email" required>
+        </md-input-container>
+
+        <md-input-container flex>
+          <label>Confirm Email:</label>
+          <input ng-model="user.confirmation" type="email" required>
+        </md-input-container>
+
+          <md-input-container flex>
+            <label>Zip Code</label>
+            <input ng-model="user.postalCode" required>
+          </md-input-container>
+        </div>
+
+
+        <h1 class="md-title">Acknowledgement</h1>
+        <md-checkbox  flex>
+          I have read and agree to all terms.
+        </md-checkbox>
+
+        <div layout layout-sm="column">
+
+
+          <md-input-container flex>
+            <label> Type Signature</label>
+            <input ng-model="user.email" type="email" required>
+          </md-input-container>
+
+
+          <md-datepicker ng-model="user.submissionDate" md-placeholder="Enter date" flex></md-datepicker>
+
+
+
+        </div>
+
+
+        <md-button ng-click="submit()" class="md-raised md-primary" ng-disabled="regForm.$invalid">Submit</md-button>
+      </form>
+    </md-content>
+  </div>
+  </body>
+  </html>
+
+
+</md-card>
+</md-content>
+
+<pre>{{user.submissionDate }}</pre>
+
+
+
+
+
+
+
+
+

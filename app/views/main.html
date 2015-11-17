@@ -1,0 +1,99 @@
+
+<!--Angular Form-->
+
+
+
+
+
+
+<!--End-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<md-card layout-sm="column" ng-hide="true">
+
+
+  <!--TITLE & when someone is selected -->
+  <md-data-table-toolbar>
+    <h2 class="md-title">Contractors</h2>
+  </md-data-table-toolbar>
+
+  <md-data-table-toolbar class="alternate" ng-show="selected.length" layout-align="space-between" aria-hidden="false"
+                         style="background-color: ghostwhite">
+    <div style="color:#06182a"><span>Items Selected:</span>{{selected.length}}
+    </div>
+    <!--END-->
+
+  </md-data-table-toolbar>
+
+  <md-data-table-container class=" show-gt-sm flex">
+    <table md-data-table md-progress="deferred" md-row-select="selected">
+      <thead md-order="query.order" md-trigger="onorderchange">
+      <tr>
+        <th order-by="requestDate" name="request Date"></th>
+        <th order-by="name" name="name"></th>
+        <th order-by="email" name="email"></th>
+        <th order-by='accounType' name=" account Type"></th>
+      </tr>
+      </thead>
+      <tbody>
+
+
+      <tr md-auto-select
+          ng-repeat="result in results | orderBy: query.order | limitTo: query.limit: (query.page - 1) * query.limit |filter:search   ">
+
+        <td>{{result.requestDate}}</td>
+        <td><a ng-href="#/edit/{{result.id}}" >{{result.name}}</a></td>
+        <td>{{result.email}}</td>
+        <td>{{result.accounType}}</td>
+
+      </tr>
+      </tbody>
+    </table>
+
+
+    <!--Pagination for the table -->
+
+    <md-card>
+      <md-data-table-pagination md-limit="query.limit" md-page="query.page" md-page="query.page" md-total="{{count}}"
+                                md-trigger="onpagechange">
+
+      </md-data-table-pagination>
+    </md-card>
+
+    <!--END-->
+
+    <!--Checkbox -->
+
+    <md-radio-group ng-model="data.group1" layout="row">
+      <md-radio-button value="True" class="md-primary">Approve</md-radio-button>
+      <md-radio-button value="False" class="md-warm">Deny</md-radio-button>
+    </md-radio-group>
+
+    <md-button class="md-primary md-raised md-hue-2" ng-disabled="!data.group1" ng-click="submit(selected,data)"
+               disable>Submit
+    </md-button>
+
+    <!--End-->
+
+  </md-data-table-container>
+</md-card>
+</md-content>
+{{selected | json }}
+
+
+</div>
+
+
+
+

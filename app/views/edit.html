@@ -1,0 +1,20 @@
+<div class="container" data-ng-model="MainCtrl" >
+  <div class="row title">
+    <div class="col-md-6 col-md-offset-3">
+
+      <form ng-submit="updateResult(result)">
+        <input type="hidden" data-ng-model="result.id" />
+        <input type="text" data-ng-model="result.name" class="form-control"  value="{{result.name}}"   required><br>
+
+        <input type="text" data-ng-model="result.email" class="form-control" placeholder="Email" required><br>
+
+        <input type="text" data-ng-model="result.accounType" class="form-control" placeholder=" Account " required><br>
+
+        <input type="submit" value="Update User" class="btn btn-info">
+      </form>
+
+
+    </div>
+  </div>
+  </div>
+
